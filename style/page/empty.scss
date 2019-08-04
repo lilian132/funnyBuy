@@ -1,0 +1,21 @@
+.pageEmpty{
+    @include flex(center, center, column);
+    height: 400px;
+    
+    &__img{
+        
+    }
+    
+    &__text{
+        padding: 36upx 0 16upx;
+        color: $uni-text-color-grey;
+        font-size: $uni-font-size-sm;
+    }
+    
+    &__btn{
+        color: white;
+        background-color: $uni-color-primary;
+        padding: 0 20upx;
+        border-radius: 30upx;
+    }
+}

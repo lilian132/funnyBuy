@@ -1,0 +1,15 @@
+.imgBanner{
+    margin-bottom: 24upx;
+    
+    &--card{
+        overflow: hidden;
+        border-radius: 16upx;
+        box-shadow: 0 2upx 4upx $uni-bg-color-mask;
+    }
+    
+    &__img{
+        display: block;
+        width: 100%;
+        height: 200upx;
+    }
+}

@@ -1,0 +1,377 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "竞猜中心",
+				"app-plus": {
+					 "titleNView": false //禁用原生导航栏,
+				}
+			}
+		},
+		{
+			"path": "pages/session/primarys",
+			"style": {
+				"navigationBarTitleText": "初级场",
+				"app-plus": {
+					 "titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/find/index",
+			"style": {
+				"navigationBarTitleText": "发现",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": "商品分类",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/category/activity",
+			"style": {
+				"navigationBarTitleText": "最新活动",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"app-plus": {
+					"titleNView": false //禁用原生导航栏
+				}
+			}
+		},
+		{
+			"path": "pages/product/detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "短信登录",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/register/forget",
+			"style": {
+				"navigationBarTitleText": "找回密码",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "设置",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/suggest",
+			"style": {
+				"navigationBarTitleText": "投诉建议",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/protocol",
+			"style": {
+				"navigationBarTitleText": "服务协议",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/servicesInfo",
+			"style": {
+				"navigationBarTitleText": "客服中心",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/message",
+			"style": {
+				"navigationBarTitleText": "消息详情",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/password/change",
+			"style": {
+				"navigationBarTitleText": "修改登录密码",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/password/editMobile",
+			"style": {
+				"navigationBarTitleText": "修改手机号码",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/password/setpassword",
+			"style": {
+				"navigationBarTitleText": "设置新密码",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/password/set",
+			"style": {
+				"navigationBarTitleText": "设置密码",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/user/userInfo",
+			"style": {
+				"navigationBarTitleText": "个人信息",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/address/addres",
+			"style": {
+				"navigationBarTitleText": "收货地址管理",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/address/addressManage",
+			"style": {
+				"navigationBarTitleText": "新增地址",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/order/goods",
+			"style": {
+				"navigationBarTitleText": "我的抢购",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/order/affirm",
+			"style": {
+				"navigationBarTitleText": "确认订单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/order/details",
+			"style": {
+				"navigationBarTitleText": "订单详情",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/product/store",
+			"style": {
+				"navigationBarTitleText": "金豆兑换",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/user/venosa",
+			"style": {
+				"navigationBarTitleText": "我的金豆",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/order/pay",
+			"style": {
+				"navigationBarTitleText": "支付订单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/gift",
+			"style": {
+				"navigationBarTitleText": "我的礼物",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/sign",
+			"style": {
+				"navigationBarTitleText": "签到领金豆",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/double",
+			"style": {
+				"navigationBarTitleText": "充值翻倍送",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/send",
+			"style": {
+				"navigationBarTitleText": "注册送",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/product/newlist",
+			"style": {
+				"navigationBarTitleText": "最新抢购结果",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/product/wdyc",
+			"style": {
+				"navigationBarTitleText": "我的预测",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/product/allyc",
+			"style": {
+				"navigationBarTitleText": "全民预测",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/set/regard",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		},
+		{
+			"path": "pages/product/playerRule",
+			"style": {
+				"navigationBarTitleText": "玩法规则",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}
+
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f11818"
+		/* 取消原生的导航栏 */
+		// "navigationStyle":"custom"
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#FF5847",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/img/footer/icon-home-n.png",
+			"selectedIconPath": "static/img/footer/icon-home-pre.png",
+			"text": "首页"
+		},{
+			"pagePath": "pages/session/primarys",
+			"iconPath": "static/img/footer/icon-center-n.png",
+			"selectedIconPath": "static/img/footer/icon-center-pre.png",
+			"text": "抢购中心"
+		}, {
+			"pagePath": "pages/user/user",
+			"iconPath": "static/img/footer/icon-me-n.png",
+			"selectedIconPath": "static/img/footer/icon-me-pre.png",
+			"text": "我的"
+		}]
+	}
+}

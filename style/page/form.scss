@@ -1,0 +1,53 @@
+.form{
+    position: relative;
+    @include flex(null, center, column);
+    
+    &Input{
+        @include flex(between, center);
+        width: 100%;
+        height: 44px;
+        margin-bottom: 16upx;
+        border-bottom: 1upx solid $uni-border-color;
+        
+        &__left{
+            @include flex-self(keep);
+            width: 60upx;
+            height: 100%;
+            padding-right: 16upx;
+        }
+        
+        &__img{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        
+        &__field{
+            @include flex-self(full);
+        }
+        
+        &__helper{
+            @include flex-self(keep);
+            color: $uni-color-primary;
+            padding-left: 16upx;
+        }
+        
+        &__code{
+            @include flex-self(keep);
+            width: 200upx;
+            text-align: center;
+            color: $uni-color-primary;
+            padding-left: 16upx;
+            border-left: 1upx solid $uni-border-color;
+        }
+        
+        .uni-icon{
+            color: $uni-text-color-grey;
+            padding: 0 16upx;
+        }
+        
+        .uni-icon-eye.uni-active{
+            color: $uni-color-primary;
+        }
+    }
+}
