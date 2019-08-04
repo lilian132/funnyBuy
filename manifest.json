@@ -114,9 +114,8 @@
     "h5" : {
         "router" : {
             "mode" : "hash",
-            "base" : "aa/h5/"
-        },
-        "domain" : "www.baidu.com"
+            "base" : "https://lilian132.github.io/funnyBuy/unpackage/dist/build/h5/"
+        }
     },
     "channel_list" : [
         {
