@@ -114,7 +114,7 @@
     "h5" : {
         "router" : {
             "mode" : "hash",
-            "base" : "/funnyBuy/unpackage/dist/build/h5/"
+            "base" : "/unpackage/dist/build/h5/"
         }
     },
     "channel_list" : [
