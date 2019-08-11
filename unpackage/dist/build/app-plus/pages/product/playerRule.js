@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"rule { padding: ",[0,30],"; color: #4a4a4a; }\n.",[1],"rule .",[1],"title { font-weight: bold; }\n",],undefined,{path:"./pages/product/playerRule.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/product/playerRule.wxml') } }));

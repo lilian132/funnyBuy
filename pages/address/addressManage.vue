@@ -90,6 +90,7 @@ export default {
 			this.$refs.mpvueCityPicker.show();
 		},
 		onConfirm(e) {
+			console.log(e)
 			this.cityPickerValue = e.value;
 			this.addressStrText = e.label;
 			this.addressStr = e.label.split('-');
@@ -170,7 +171,10 @@ export default {
 				if(res.data.code == 0){
 					uni.showToast({ title: (this.editType == 'edit'?'修改成功':'添加成功'),duration:3000 });
 					setTimeout(function(){
-						uni.navigateBack();
+						// uni.navigateBack();
+						uni.navigateTo({
+							url: `/pages/address/addres?title=addres`
+						});
 					},1500)
 				} else {
 					return uni.showToast({ title: res.data.msg, icon: 'none',duration:3000 });

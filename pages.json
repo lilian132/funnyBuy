@@ -300,7 +300,7 @@
 		{
 			"path": "pages/product/newlist",
 			"style": {
-				"navigationBarTitleText": "最新抢购结果",
+				"navigationBarTitleText": "最新成交",
 				"app-plus": {
 					"bounce": "none"
 				}
@@ -318,7 +318,7 @@
 		{
 			"path": "pages/product/allyc",
 			"style": {
-				"navigationBarTitleText": "全民预测",
+				"navigationBarTitleText": "全部出价记录",
 				"app-plus": {
 					"bounce": "none"
 				}

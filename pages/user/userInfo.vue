@@ -34,8 +34,9 @@
 				mobilePhone:''
 			}
 		},
-		onLoad() {
+		onShow() {
 			let userInfo = uni.getStorageSync('userInfo');
+			console.log('00099', userInfo)
 			if (userInfo) {
 				this.nickName = userInfo.nickName;
 				this.mobilePhone = userInfo.mobile;

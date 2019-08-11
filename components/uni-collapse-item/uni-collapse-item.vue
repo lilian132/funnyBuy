@@ -14,7 +14,7 @@
 			<view class="day">
 				<view class="left">
 					<text class="qiang">{{titleObj.name}}</text>
-					<text class="qi">{{titleObj.periodNo}}</text>
+					<text class="qi">{{titleObj.periodNo.slice(4)}}</text>
 					<text style="padding-top: 8upx;">期</text>
 					<view class="pice"><text>¥{{titleObj.lastAvgPrice}}</text></view>
 				</view>

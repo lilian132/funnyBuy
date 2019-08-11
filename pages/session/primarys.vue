@@ -41,7 +41,7 @@
 										<text class="ci">次出价</text>
 									</view>
 									<view class="liji">
-										<button v-if="item.status==1" type="primary"  hover-class="navigator-hover" style="background-color: rgba(255,88,71,1)">立即抢购</button>
+										<button v-if="item.status==1" type="primary"  hover-class="navigator-hover" style="background-color: rgba(255,88,71,1)">立即11抢购</button>
 										<button v-else-if="item.status > 1" type="primary" @tap.stop="getNexQi(item,index)"  hover-class="navigator-hover">抢购下期</button>
 									</view>
 								</view>

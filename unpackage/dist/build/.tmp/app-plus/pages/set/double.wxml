@@ -1,0 +1,1 @@
+<view class="sign"><view class="signs" style="{{'background:'+('url('+imageURL[0]+')')+';'}}"><view class="get"><image src="../../static/img/header/Group%2013.png"></image></view></view><view class="start"><image src="../../static/img/error/Group%2010.png"></image></view></view>

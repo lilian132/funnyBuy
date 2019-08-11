@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "竞猜中心",
+  "titleNView": false,
+  "usingComponents": {
+    "uni-countdown": "/components/uni-countdown/uni-countdown"
+  }
+}

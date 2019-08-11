@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "签到领金豆",
+  "bounce": "none",
+  "usingComponents": {
+    "popup": "/components/uni-popup/YYT-popup"
+  }
+}

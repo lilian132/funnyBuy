@@ -7,19 +7,26 @@
 				</view>
 				<view class="right">
 					<view class="title"><text>{{item.title}}</text></view>
+					<view class="piced">
+						<view class="lef">
+							<text class="lef1">当前均价</text>
+							<text class="lef2">¥</text>
+							<text class="lef3">{{item.periodLastPrice}}</text>
+						</view>
+					</view>
 					<view class="name">
-						抢购人 :
+						抢中用户 :
 						<text class="xiaoxiao">{{item.nickName}}</text>
 					</view>
 					<view class="piced">
 						<view class="lef">
-							<text class="lef1">均价</text>
+							<text class="lef1">抢中价格</text>
 							<text class="lef2">¥</text>
-							<text class="lef3">{{item.periodLastPrice}}</text>
+							<text class="lef3">{{item.userGuessPrice}}</text>
 						</view>
 						<view class="righ">
-							<text class="righ1">匹配度 ：</text>
-							<text class="righ2">{{item.rateString}}</text>
+							<text class="righ1">差价 ：</text>
+							<text class="righ2" style="color: #FF9F00; font-size: 30upx;">¥{{item.subPrice}}</text>
 						</view>
 					</view>
 					<view class="timed">
@@ -98,7 +105,7 @@ page {
 	background: rgba(245, 245, 245, 1);
 }
 .newest {
-	height: 268upx;
+	height: 298upx;
 	background: rgba(255, 255, 255, 1);
 	border-radius: 20upx;
 	margin: 30upx;
@@ -191,7 +198,7 @@ page {
 			.timed {
 				display: flex;
 				justify-content: space-between;
-
+				padding-top:10upx;
 				.let {
 					font-size: 26upx;
 					font-family: PingFangSC-Regular;

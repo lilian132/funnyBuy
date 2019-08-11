@@ -66,12 +66,14 @@
 			</view>
 		</view>
 		<!-- 匹配度 -->
-		<view class="matched" v-if="periodData.rateString">
+		<view class="matched" v-if="periodData.userGuessPrice">
 			<view class="matched1">
 				<image src="../../static/img/temp/pic-jiangpin-n.png"></image>
 			</view>
 			<view class="matched2">
-				恭喜<text class="name">{{periodData.userName}}</text>抢购成功，匹配度<text class="manyi">{{periodData.rateString}}</text>!
+				恭喜<text class="name">{{periodData.userName}}</text>本期差价最小抢购成功<br/>
+				抢中价格<text class="manyi">{{periodData.userGuessPrice}}</text>，
+				差价<text class="manyi">{{periodData.subPrice}}</text>
 			</view>
 		</view>
 		<!-- 天天抢购 -->
@@ -128,7 +130,7 @@
 				<view class="left">
 					<text class="left1">我的出价</text>
 					<text class="le">已出价</text>
-					<text class="left2">{{woDeYCData.length}}</text>
+					<text class="left2">{{woDeYC.totalCount}}</text>
 					<text class="left3">次</text>
 				</view>
 				<view @tap="toYCPage(1)" class="right"><image src="../../static/img/header/icon-xiangyou-n.png"></image></view>
@@ -173,10 +175,12 @@
 			<view class="left">
 				<text>场次：{{periodData.sceneConfig&&periodData.sceneConfig.sceneName}}</text>
 				<text>退豆比例：{{periodData.sceneConfig&&periodData.sceneConfig.pointRate}}%</text>
+				<text>抢购手续费：{{periodData.sceneConfig&&periodData.sceneConfig.pointsNum}}豆/次</text>
 			</view>
 			<view class="right">
 				<text>抢购时间：{{periodData.sceneConfig&&periodData.sceneConfig.panicBuyingTime}}分钟</text>
-				<text>抢购手续费：{{periodData.sceneConfig&&periodData.sceneConfig.pointsNum}}豆/次</text>
+				<text>出价范围：{{periodData.sceneConfig&&(periodData.sceneConfig.priceMin + '~' + periodData.sceneConfig.priceMax)}}</text>
+				<text style="visibility: hidden;">.</text>
 			</view>
 		</view>
 		<!-- 玩法规则 -->
@@ -189,7 +193,8 @@
 				</view>
 			</view>
 			<view class="baoming">
-				每期选出一名中奖用户，我的出价和抢购结束后的当前均价最接近(即匹配度最高)，且出价用时最短者获奖。
+				每期选出一名抢购用户，
+				<text style="color:#FF5B4A">我的出价和抢购结束后的当前均价差价最小，且出价用时最短者抢购成功。</text>
 			</view>
 		</view>
 		<!-- 抢购流程 -->
@@ -257,7 +262,7 @@
 				<button @tap="eventButtonNav(2)" type="primary">去确认订单</button>
 			</view>
 		</view>
-		<view ref="masklayer" @tap="hidePop" class="mask_layer" :class="{show:showPay}"></view>
+		<view ref="masklayer_showPay" @tap="hidePop" class="mask_layer" :class="{show:showPay}"></view>
 		<view class="pop_price" :class="{show:showPay}">
 			<view class="pop_price_h">
 				<text><text class="icon-tip"></text>
@@ -335,7 +340,8 @@ export default {
 			showDateTime:false,//是否显示倒计时
 			countdownTime:{h:0,m:0,s:0},//倒计时
 			isRefreshTime:true,
-			woDeYCData:[],//我的预测
+			woDeYC: {}, //我的预测
+			woDeYCData:[],//我的预测数据
 			allYCData:[],//全民预测
 			allYCCount:0,//全民预测总条数
 			newSuccessData:[],//最新成交数据
@@ -361,6 +367,7 @@ export default {
 			textBatchPrice:'',
 			isSetChange:false,
 			maxRandomPrice:100, //出价最大值
+			minRandomPrice:0, //出价最小值
 			trySocketCount:0,
 			batchPrice:[//批量出价
 				{price:''},
@@ -414,6 +421,10 @@ export default {
 					this.isSale = !res.data.rest;
 					this.isSaleMsg = res.data.rest ? res.data.msg:'';
 					this.isTimeUpLoading = false; //是否为倒计时结束状态
+					if(res.data.data && res.data.data.sceneConfig) {
+						this.maxRandomPrice = res.data.data.sceneConfig.priceMax;
+						this.minRandomPrice = res.data.data.sceneConfig.priceMin;
+					}
 					//倒计时结束回调时更新价格动画
 					if(callback&&this.periodData.executeStatus == 2){
 						this.periodData.lastAvgPrice = oldPrice;
@@ -547,10 +558,20 @@ export default {
 				data:{"id": this.periodId},
 				pageSize:4
 			}
-			this.$api.postAPI('guess/queryMyPeriodGuess',{"id": this.periodId}).then(res=>{
+			this.$api.postAPI('guess/queryMyPeriodGuess',{				
+				"currentPage": 1,
+				"data" : {
+					"id": this.periodId,
+				},
+				"pageSize": 10,
+				}).then(res=>{
 				uni.hideLoading();
 				if(res.data.code == 0){
-					this.woDeYCData = res.data.data;
+					this.woDeYC = res.data.data;
+					this.woDeYCData = this.woDeYC.data;
+					if (this.woDeYCData.length > 4) {
+						this.woDeYCData.length = 4;
+					}					
 					if(this.woDeYCData&&(this.woDeYCData.length>0)){
 						let _userInfo = uni.getStorageSync('userInfo');
 						if(_userInfo){
@@ -852,13 +873,22 @@ export default {
 							userName:data.data.userName,
 							guessPrices:data.data.guessPrices,
 							isShow:false,
-							top:_this.random(0,360)
+							top:_this.random(0,360),
+							t: new Date(),
 						});
 						setTimeout(()=>{
-							_this.priceMsgArr[0].isShow = true;
+							console.log('=================lly', _this.priceMsgArr[0].isShow);
+							for(let i = 0; i < _this.priceMsgArr.length; i++) {
+								if (!_this.priceMsgArr[i].isShow) {
+									_this.priceMsgArr[i].isShow = true;
+									break;
+								}
+							}							
 						},300);
-						setTimeout(()=>{
-							_this.priceMsgArr.shift();
+						setTimeout(()=>{							
+							// if (new Date() - _this.priceMsgArr[0].t > 10000){
+							// 	_this.priceMsgArr.shift();
+							// }
 						},9000)
 					  
 				  } else if(data.serviceId == 1004){//围观人数
@@ -1080,13 +1110,13 @@ export default {
 			uni.navigateTo({url:'/pages/product/playerRule'});
 		},
 		hidePop(){
-			this.showPay = !this.showPay;
+			this.showPay = false;
 			setTimeout(()=>{
-				this.$refs.masklayer.$el.style.display = 'none';
+				this.$refs.masklayer_showPay.$el.style.display = 'none';
 			},200);
 		},
 		toPopPrice(){
-			this.$refs.masklayer.$el.style.display = 'block';
+			this.$refs.masklayer_showPay.$el.style.display = 'block';
 			setTimeout(()=>{
 				this.showPay = true;
 			},100);
@@ -1095,7 +1125,7 @@ export default {
 			return (Math.random() * (upper - lower) + lower).toFixed(2);
 		},
 		toRandPrice(){
-			this.numberPrice = this.random2(1,this.maxRandomPrice);
+			this.numberPrice = this.random2(this.minRandomPrice,this.maxRandomPrice);
 		},
 		batchPriceChange(e){//批量出价文本框input事件
 			let curText = e.detail.value;
@@ -1123,7 +1153,7 @@ export default {
 			},100);
 		},
 		hidePopPrice(){
-			this.showTipPrice = !this.showTipPrice;
+			this.showTipPrice = false;
 			setTimeout(()=>{
 				this.$refs.masklayer.$el.style.display = 'none';
 			},200);
@@ -1378,7 +1408,7 @@ page {
 /* 匹配度 */
 .matched{
 	margin: 30upx 30upx;
-    height:356upx;
+    height:286upx;
     background:rgba(255,255,255,1);
 	display: flex;
 	flex-direction: column;
@@ -1387,8 +1417,8 @@ page {
 	.matched1{
 		margin-top: 14upx;
 		image{
-			width: 300upx;
-			height: 250upx;
+			width: 180upx;
+			height: 150upx;
 		}
 	}
 	.matched2{
@@ -1397,6 +1427,7 @@ page {
 		font-family:PingFangSC-Regular;
 		font-weight:400;
 		color:#000000;
+		text-align: center;
 		.name{
             font-size:28upx;
             font-family:PingFangSC-Regular;
@@ -1771,7 +1802,7 @@ page {
 }
 /* 说明 */
 .state {
-	height: 134upx;
+	height: 164upx;
 	background: rgba(255, 255, 255, 1);
 	margin: 20upx 0upx 20upx 0upx;
 	display: flex;
@@ -1798,7 +1829,7 @@ page {
 }
 /* 玩法规则 */
 .top-regulation {
-	height: 277upx;
+	height: 237upx;
 	background-color: #ffffff;
 	margin-bottom: 20upx;
 	.regulation {
@@ -1836,7 +1867,7 @@ page {
 		}
 	}
 	.baoming {
-		height: 190upx;
+		height: 150upx;
 		padding: 30upx;
 		font-size: 26upx;
 		color: #4a4a4a;

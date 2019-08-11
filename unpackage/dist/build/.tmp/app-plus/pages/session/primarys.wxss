@@ -1,0 +1,336 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+view {
+  background-size: cover !important;
+}
+page,
+.content {
+  height: 100%;
+}
+.swiper-box {
+  height: calc(100% - 90rpx);
+  background: whitesmoke;
+}
+.list-scroll-content {
+  height: 100%;
+}
+.navbar {
+  position: fixed;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 80rpx;
+  padding: 0 5px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+  margin-top: 40rpx;
+  z-index: 10;
+}
+.navbar .nav-item {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    font-size: 28rpx;
+    color: #9b9b9b;
+    position: relative;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+}
+.navbar .nav-item.current {
+      font-size: 28rpx;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: black;
+}
+.navbar .nav-item.current:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+                transform: translateX(-50%);
+        width: 100rpx;
+        height: 0;
+        border-bottom: 2px solid #ff5847;
+}
+.navbar-space {
+  height: 80rpx;
+  background: #fff;
+}
+.uni-swiper-item {
+  height: auto;
+}
+._div,
+page {
+  background: whitesmoke;
+}
+swiper {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.swiper {
+  height: 14000rpx;
+}
+.text-orange {
+  color: #f37b1d;
+}
+.text-black {
+  color: #333333;
+}
+.padding {
+  padding: 20rpx 0 30rpx 0;
+}
+.margin-top {
+  margin-top: 30rpx;
+}
+.text-center {
+  text-align: center;
+}
+.record {
+  text-align: center;
+  margin: 100rpx 0;
+}
+.purchase {
+  position: fixed;
+  width: 100%;
+  height: 98rpx;
+  background: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  margin-top: 40rpx;
+}
+.purchase:before {
+    content: ' ';
+    width: 100%;
+    height: 20rpx;
+    background-color: #f5f5f5;
+}
+.purchase .left {
+    width: 256rpx;
+    height: 80rpx;
+}
+.purchase .left image {
+      width: 100%;
+      height: 100%;
+}
+.purchase.stop {
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+}
+.purchase.stop .left {
+      display: none;
+}
+.purchase .right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0rpx 30rpx;
+}
+.purchase .right .stopSales {
+      color: #D0021B;
+      font-size: 24rpx;
+      border: 1rpx solid #D0021B;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      height: 36rpx;
+      line-height: 36rpx;
+      margin-right: 80rpx;
+      padding: 2rpx 10rpx;
+      margin-top: 16rpx;
+}
+.purchase .right .open {
+      min-width: 90rpx;
+      height: 42rpx;
+      padding: 21rpx 23rpx 19rpx 0rpx;
+      font-weight: bold;
+}
+.purchase .right .open image {
+        width: 100%;
+        height: 100%;
+}
+.purchase .right .doentime {
+      padding: 15rpx 0rpx;
+}
+.purchase .right .doentime ._span {
+        margin-right: 6rpx;
+}
+.purchase .right .doentime ._span:not(:nth-child(2n)) {
+        display: inline-block;
+        width: 40rpx;
+        height: 40rpx;
+        line-height: 40rpx;
+        text-align: center;
+        background: #4a4a4a;
+        color: white;
+        border-radius: 10rpx;
+}
+.list-line {
+  height: 100rpx;
+  height: 140rpx;
+}
+/* 商品列表 */
+.shopList {
+  height: 320rpx;
+  background: white;
+  border-radius: 20rpx;
+  margin: 30rpx 30rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.shopList:first-child {
+    margin-top: 100rpx;
+}
+.shopList .left {
+    padding-right: 10px;
+    width: 210rpx;
+}
+.shopList .left .first {
+      width: 80rpx;
+      height: 80rpx;
+}
+.shopList .left .first image {
+        width: 100%;
+        height: 100%;
+}
+.shopList .left .first-button {
+      width: 180rpx;
+      height: 180rpx;
+      padding: 0rpx 10rpx 70rpx 30rpx;
+}
+.shopList .left .first-button image {
+        width: 100%;
+        height: 100%;
+}
+.shopList .right {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    padding: 30rpx 0rpx;
+    padding-right: 30rpx;
+}
+.shopList .right .right-name {
+      width: 440rpx;
+      font-size: 30rpx;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: #4a4a4a;
+      overflow: hidden;
+      white-space: nowrap;
+      -o-text-overflow: ellipsis;
+         text-overflow: ellipsis;
+}
+.shopList .right .right-pic .dangqian {
+      font-size: 26rpx;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: #4a4a4a;
+      padding-right: 20rpx;
+}
+.shopList .right .right-pic .money {
+      display: inline-block;
+      font-size: 36rpx;
+      font-family: PingFangSC-Medium;
+      font-weight: 600;
+      color: #ff9f00;
+}
+.shopList .right .right-pic .icon-m {
+      display: inline-block;
+      font-size: 28rpx;
+      margin-right: 2rpx;
+}
+.shopList .right .right-chujia {
+      font-size: 26rpx;
+      font-family: PingFangSC-Regular;
+      font-weight: 400;
+      color: #ff5847;
+}
+.shopList .right .right-chujia .ci {
+        color: #4a4a4a;
+        margin-left: 2rpx;
+}
+.shopList .right .liji button {
+      margin-left: 240rpx;
+      width: 200rpx;
+      height: 80rpx;
+      background: #4a90e2;
+      border-radius: 20rpx;
+      font-size: 32rpx;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: white;
+      line-height: 80rpx;
+}
+

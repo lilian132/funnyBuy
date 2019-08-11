@@ -71,7 +71,7 @@ export default {
 				this.getCodeisWaiting = false;
 			})
 		},
-		async btnEdit() {
+		async btnEdit() {			
 			uni.hideKeyboard();
 			//验证规则
 			if (!/^1(3|4|5|6|7|8|9)\d{9}$/.test(this.phoneNumber)) {
@@ -99,12 +99,13 @@ export default {
 			let res_data = res.data;
 			uni.hideLoading();
 			if(res_data.code == 0){
-				let userInfo = uni.getStorageInfoSync('userInfo');
+				let userInfo = uni.getStorageSync('userInfo');
 				userInfo.mobile = this.phoneNumber;
 				uni.setStorageSync('userInfo',userInfo);
 				uni.showToast({ title: '修改成功', icon: 'success'});
 				setTimeout(function(){
 					uni.navigateBack();
+					// uni.navigateTo({url:'/pages/user/userInfo'});
 				},1500);
 			} else {
 				return uni.showToast({ title: res_data.msg, icon: 'none',duration:3000 });

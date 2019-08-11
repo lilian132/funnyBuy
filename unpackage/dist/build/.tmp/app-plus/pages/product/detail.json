@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "bounce": "none",
+  "usingComponents": {
+    "uni-number-box": "/components/uni-number-box/uni-number-box",
+    "uni-collapse": "/components/uni-collapse/uni-collapse",
+    "uni-collapse-item": "/components/uni-collapse-item/uni-collapse-item",
+    "uni-countdown": "/components/uni-countdown/uni-down"
+  }
+}

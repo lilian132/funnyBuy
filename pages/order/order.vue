@@ -14,7 +14,7 @@
 							<view class="queren"><button type="primary" @click="btn">立即抢购</button></view>
 						</block>
 						<block v-else>
-							<view  @tap="toSure(item)" class="purchase" v-for="item in item1.orderList" :key="item.periodId">
+							<view @tap="toDetail(item)"  class="purchase" v-for="item in item1.orderList" :key="item.periodId">
 								<view class="purchase-top">
 									<view class="purchase-left">
 										<view class="top">
@@ -36,7 +36,7 @@
 								<view class="purchase-bottom">
 									<view class="left">{{item.guessStartTime}}</view>
 									<view class="right" v-if="item.status == '0' || item.status == '1'|| item.status == '2'">
-										<button type="primary" style="background-color: rgba(255,88,71,1)">{{item.status == '0' ?'去确认':'确认收货'}}</button>
+										<button @tap.stop="toSure(item)" type="primary" style="background-color: rgba(255,88,71,1)">{{item.status == '0' ?'去确认':'确认收货'}}</button>
 									</view>
 								</view>
 							</view>
@@ -158,6 +158,17 @@ export default {
 			this.loadData('tabChange');
 		},
 		//确认收货
+		toDetail(item) {
+			if(item.status == '0'){//确认订单
+				uni.navigateTo({
+					url: `/pages/order/affirm?periodId=${item.periodId}`
+				});
+			}else{
+				uni.navigateTo({
+					url: `/pages/product/detail?periodId=${item.periodId}`
+				});
+			}
+		},
 		toSure(item) {
 			if(item.status == '0'){//确认订单
 				uni.navigateTo({
@@ -166,10 +177,6 @@ export default {
 			} else if(item.status != '3') {//确认收货
 				this.toShowPop();
 				this.tempOpItem = item;
-			} else{
-				uni.navigateTo({
-					url: `/pages/product/detail?periodId=${item.periodId}`
-				});
 			}
 		},
 		btnSureOK(){

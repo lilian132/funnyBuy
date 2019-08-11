@@ -41,6 +41,15 @@ export default {
 	methods: {
 		// 点击立即注册跳转到登录页面
 		btn() {
+			let token = uni.getStorageSync('token');
+			if(token) {
+				uni.showToast({
+					title: '您已注册',
+					icon: 'none',
+					duration:3000
+				});
+				return;
+			}
 			uni.navigateTo({
 				url: '/pages/login/login'
 			});

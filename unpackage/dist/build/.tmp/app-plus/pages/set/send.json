@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "注册送",
+  "bounce": "none",
+  "usingComponents": {
+    "popup": "/components/uni-popup/YYT-popup"
+  }
+}
